@@ -1,0 +1,70 @@
+@import "@/style/theme.scss";
+@import "@/style/mixins.scss";
+
+.Button {
+  @include flex-center-both;
+  padding: 20px 32px;
+  border-radius: $radius;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  color: white;
+  background-color: $purple-300;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: $transition;
+
+  &:hover {
+    background-color: $purple-300--darker;
+  }
+}
+
+.Content {
+  display: flex;
+  transition: $transition;
+  position: relative;
+}
+.Icon {
+  display: flex;
+  position: absolute;
+  right: -30px;
+  top: 5px;
+}
+.SVG {
+  color: white;
+  margin-left: 10px;
+  width: 22px;
+  height: 18px;
+  margin-top: -7px;
+  transition: $transition;
+  opacity: 0;
+}
+
+.SVGHovered {
+  @extend .SVG;
+  @include arrowFadeIn;
+}
+
+.Disabled {
+  @extend .Button;
+  background-color: $grey-100;
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: $grey-100;
+    span {
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-width: 870px) {
+  .Button {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+
+  .SVG {
+    margin-top: -9px;
+  }
+}

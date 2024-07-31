@@ -1,0 +1,26 @@
+@import "@/style/theme.scss";
+@import "@/style/mixins.scss";
+
+.Countdown {
+  margin-top: 40px;
+  color: $grey-200;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.Item {
+  @include flex-center-both;
+
+  span {
+    @include flex-center-horizontal;
+    margin: 0px 6px;
+  }
+}
+
+@media (max-width: 870px) {
+  .Countdown {
+    margin-top: 24px;
+    font-size: 14px;
+  }
+}

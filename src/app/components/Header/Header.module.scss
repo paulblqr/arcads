@@ -1,0 +1,47 @@
+@import "@/style/theme.scss";
+@import "@/style/mixins.scss";
+
+.Header {
+  width: 100%;
+  position: relative;
+  @include flex-center-vertical;
+  border-bottom: 1px solid #dee2e6;
+  padding: 20px 40px;
+  box-shadow: $light-box-shadow;
+}
+
+.Logo {
+  width: 142px;
+}
+
+.Email {
+  @include flex-center-both;
+  position: absolute;
+  right: 40px;
+  top: 30px;
+  cursor: pointer;
+  color: $grey-300;
+  font-size: 14px;
+}
+
+.SVG {
+  width: 20px;
+  margin-left: 8px;
+  margin-top: 2px;
+  color: #dee2e6;
+}
+
+@media (max-width: 768px) {
+  .Header {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 18px;
+  }
+
+  .Logo {
+    width: 120px;
+  }
+  .Email {
+    right: 18px;
+  }
+}

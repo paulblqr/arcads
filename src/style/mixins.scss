@@ -1,0 +1,136 @@
+@import "./theme.scss";
+
+@mixin flex-center-both {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-vertical {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex-center-horizontal {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin absolute-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin align-center {
+  margin: 0 auto;
+}
+
+$offset: 6px;
+
+@mixin offsetRight {
+  opacity: 1;
+  animation: offsetRight 0.4s cubic-bezier(0.19, 0.08, 0.37, 1.2) forwards;
+  @keyframes offsetRight {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate($offset, -$offset);
+    }
+  }
+}
+
+@mixin offsetLeft {
+  opacity: 1;
+  animation: offsetLeft 0.4s cubic-bezier(0.19, 0.08, 0.37, 1.2) forwards;
+  @keyframes offsetLeft {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(-$offset, $offset);
+    }
+  }
+}
+
+@mixin fadeInLeft {
+  opacity: 0;
+  animation: fadeInLeft 0.6s cubic-bezier(0.19, 0.08, 0.37, 1.2) forwards;
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(35px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+}
+
+@mixin up {
+  opacity: 1;
+  animation: up 0.8s cubic-bezier(0.19, 0.08, 0.37, 1.2) forwards;
+  @keyframes up {
+    0% {
+      transform: translateY(150px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
+
+@mixin arrowFadeIn {
+  animation: arrowFadeIn 0.4s cubic-bezier(0.19, 0.08, 0.37, 1.2) forwards;
+  @keyframes arrowFadeIn {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(6px, 0px);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin fadeInPop {
+  opacity: 0;
+  animation: fadeIn 0.4s cubic-bezier(0.19, 0.08, 0.37, 1.2) forwards;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+
+    50% {
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(1);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
