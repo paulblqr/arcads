@@ -71,7 +71,8 @@ export default function Home() {
             </div>
           </div>
           <div className={style.CGU}>
-            By clicking "Continue" or "Continue with Google", you agree to our
+            By clicking &quot;Continue&quot; or &quot;Continue with
+            Google&quot;, you agree to our
             <a href="#">Terms of Use</a>&<a href="#">Privacy Policy</a>
           </div>
         </div>

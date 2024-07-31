@@ -35,7 +35,7 @@ export default function Login() {
           <div className={style.Title}>Verify your email</div>
           <img src="verify.jpg" className={style.Image} />
           <div className={style.Column}>
-            We've sent a magic link to
+            We&apos;ve sent a magic link to
             <span>{email}</span>
             <br />
             Follow the link in your inbox to get started
