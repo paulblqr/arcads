@@ -9,29 +9,34 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const [isExisting, setIsExisting] = useState(false);
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
 
   const router = useRouter();
 
   const handleSubmit = useCallback(async () => {
-    if (!isEmailValid(email)) {
+    if (!email || !isEmailValid(email)) return;
+    try {
+      const response = await fetch("/api/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, isExisting }),
+      });
+      if (!response.ok) {
+        setError("Something went wrong.");
+        throw new Error(`Something went wrong.`);
+      }
+      const data = await response.json();
+      const params = new URLSearchParams({
+        email,
+        isExisting: data?.isExisting,
+      });
+      router.push(`/login?${params.toString()}`);
+    } catch (error) {
+      console.log(error, "error");
       return;
     }
-    const response = await fetch("/api/user", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, isExisting }),
-    });
-    if (response.status !== 200) {
-      console.log("error", response);
-      return;
-    }
-
-    const data = await response.json();
-    const params = new URLSearchParams({ email, isExisting: data?.isExisting });
-
-    router.push(`/login?${params.toString()}`);
   }, [router, email, isExisting]);
 
   const isButtonDisabled = useMemo(() => {
@@ -51,6 +56,7 @@ export default function Home() {
               Enter your email to create an account
             </h3>
             <div className={style.Label}>Email (required)</div>
+            {error && <div className={style.Error}>{error}</div>}
             <div className={style.InputContainer}>
               <input
                 type="email"
@@ -62,7 +68,7 @@ export default function Home() {
             </div>
             <div className={style.ButtonWrapper}>
               <Button
-                onClick={() => handleSubmit()}
+                onClick={handleSubmit}
                 isDisabled={isButtonDisabled}
                 withIcon
               >

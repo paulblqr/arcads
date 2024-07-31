@@ -26,7 +26,7 @@ export default function Countdown() {
   return (
     <div className={style.Countdown}>
       {timeLeft === 0 ? (
-        <Button onClick={() => sendNewMail()}>Send a new email</Button>
+        <Button onClick={sendNewMail}>Send a new email</Button>
       ) : (
         <div className={style.Item}>
           Resend mail in <span>{timeLeft}</span> seconds

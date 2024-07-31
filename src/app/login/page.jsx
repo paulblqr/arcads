@@ -4,6 +4,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import style from "./login.module.scss";
 import Header from "@/app/components/Header/Header";
 import Countdown from "@/app/components/Countdown/Countdown";
+import Image from "next/image";
 
 export default function Login() {
   const router = useRouter();
@@ -12,13 +13,14 @@ export default function Login() {
   const email = searchParams.get("email");
   const existParam = searchParams.get("isExisting");
 
+  if (!email) {
+    router.push("/");
+  }
+
   const isExisting = useMemo(() => {
     return existParam === "true";
   }, [existParam]);
 
-  if (!email) {
-    router.push("/");
-  }
   return (
     <div className={style.Container}>
       <Header email={email} />
@@ -33,7 +35,7 @@ export default function Login() {
       ) : (
         <div className={style.FlexCol}>
           <div className={style.Title}>Verify your email</div>
-          <img src="verify.jpg" className={style.Image} />
+          <img src="verify.jpg" className={style.Image} alt="" />
           <div className={style.Column}>
             We&apos;ve sent a magic link to
             <span>{email}</span>

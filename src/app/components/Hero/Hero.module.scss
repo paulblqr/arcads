@@ -39,6 +39,7 @@ $offset: 6px;
   border-radius: $radius;
   @include offsetRight;
   animation-delay: 800ms;
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 2;
   video {
     width: 100%;
