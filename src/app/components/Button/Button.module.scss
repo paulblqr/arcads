@@ -5,6 +5,8 @@
   @include flex-center-both;
   padding: 20px 32px;
   border-radius: $radius;
+  border: none;
+  width: 100%;
   font-size: 15px;
   letter-spacing: 0.5px;
   font-weight: 500;

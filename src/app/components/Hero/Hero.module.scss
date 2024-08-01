@@ -17,6 +17,8 @@ $offset: 6px;
 
 .Logo {
   width: 148px;
+  height: 50px;
+  position: relative;
 }
 
 .Decoration {
@@ -98,15 +100,23 @@ $offset: 6px;
 
 .MocksIMG {
   margin-right: 8px;
-  img {
+  @include flex-center-horizontal;
+
+  .MocksIMGContainer {
+    display: flex;
+    position: relative;
     width: 42px;
     height: 42px;
     border-radius: 50%;
+    overflow: hidden;
     border: 3px solid $purple-100;
     @for $i from 1 through 3 {
       &:nth-child(#{$i}n) {
         margin-left: -#{$i * 5.5}px;
       }
+    }
+    img {
+      position: absolute;
     }
   }
 }
@@ -132,6 +142,7 @@ $offset: 6px;
 
   .Logo {
     width: 130px;
+    height: 42px;
     margin-bottom: 16px;
   }
 

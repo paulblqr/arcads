@@ -50,7 +50,7 @@ export default function Home() {
       </div>
       <div className={style.Infos}>
         <div className={style.Wrapper}>
-          <div className={style.Text}>
+          <form action={handleSubmit} className={style.Text}>
             <h1 className={style.Title}>Ready to use Arcads?</h1>
             <h3 className={style.Subtitle}>
               Enter your email to create an account
@@ -63,19 +63,16 @@ export default function Home() {
                 placeholder="Email"
                 className={style.Input}
                 value={email}
+                required
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className={style.ButtonWrapper}>
-              <Button
-                onClick={handleSubmit}
-                isDisabled={isButtonDisabled}
-                withIcon
-              >
+              <Button isDisabled={isButtonDisabled} withIcon>
                 Continue
               </Button>
             </div>
-          </div>
+          </form>
           <div className={style.CGU}>
             By clicking &quot;Continue&quot; or &quot;Continue with
             Google&quot;, you agree to our
