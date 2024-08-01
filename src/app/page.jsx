@@ -52,9 +52,9 @@ export default function Home() {
         <div className={style.Wrapper}>
           <form action={handleSubmit} className={style.Text}>
             <h1 className={style.Title}>Ready to use Arcads?</h1>
-            <h3 className={style.Subtitle}>
+            <p className={style.Subtitle}>
               Enter your email to create an account
-            </h3>
+            </p>
             <div className={style.Label}>Email (required)</div>
             {error && <div className={style.Error}>{error}</div>}
             <div className={style.InputContainer}>

@@ -16,6 +16,7 @@ function Hero() {
       <img
         src="/signupDecoration.png"
         alt="Logo"
+        draggable="false"
         className={style.Decoration}
       />
 
